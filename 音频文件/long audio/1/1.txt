@@ -1,0 +1,1 @@
+In this section, we first describe the design motivation behind TM-Speech and then introduce the architecture of our model. TM-Speech leverages Mamba’s exceptional capability in modeling one-dimensional sequences to enhance audio reasoning. This approach aims to simplify the training pipeline and improve speech quality for fully end-to-end text-to-waveform synthesis.

@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TM-Speech</title>
+  <style>
+    body {
+      margin: 0% 15%;
+      padding: 50px 30px;
+      background: #fff;
+      color: #111;
+      font-size: 17px;
+      font-family: sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      font-size: 1.75em;
+    }
+
+    h2 {
+      margin-bottom: 0.4em;
+    }
+
+    hr {
+      height: 0.5px;
+      border-width: 0;
+      color: lightgray;
+      background-color: lightgray
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      /* 设置表格布局为固定 */
+    }
+
+    td {
+      width: 33.33%;
+      /* 每个单元格的宽度为100%的三分之一 */
+    }
+
+    audio {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>TM-Speech Audio Samples</h1>
+  <p>
+  <h2>English Single-Speaker TTS</h2>
+  <div>
+    <b>Dataset</b>: <a href="https://keithito.com/LJ-Speech-Dataset/">LJSpeech</a>
+  </div>
+  <div>
+    <b>Checkpoint</b>: <a
+      href="https://drive.google.com/file/d/1r3fYhnblBJ8hDKDSUDtidJ-BN-xAM9pe/view?usp=sharing">link</a>
+  </div>
+  <div>
+    <b>Config</b>: <a href="https://github.com/ming024/FastSpeech2/tree/master/config/LJSpeech">link</a>
+  </div>
+  <div>
+    <b>Vocoder</b>: <a href="https://github.com/jik876/hifi-gan">HiFi-GAN (LJSpeech)</a>
+  </div>
+
+  <!-- long audio -->
+  <hr>
+  <table>
+    <tr>
+      <th style="text-align: center; font-size: 24px;">long audio</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- l1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/1/FastSpeech2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/1/MF.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/1/TM-Speech.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      In this section, we first describe the design motivation behind TM-Speech and then introduce the architecture of
+      our model. TM-Speech leverages Mamba’s exceptional capability in modeling one-dimensional sequences to enhance
+      audio reasoning. This approach aims to simplify the training pipeline and improve speech quality for fully
+      end-to-end text-to-waveform synthesis.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- l2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/2/FS2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/2/MF.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/2/TM-Speech.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      In the quiet moments just before dawn, when the world holds its breath and the sky turns from deep indigo to soft
+      gold, there’s a sense of magic in the air. The first light touches the horizon, painting the clouds in hues of
+      pink and amber, as if nature itself is waking from a dream. Birds begin their morning songs, filling the silence
+      with melody, and the air is cool, crisp, full of promise. It’s a reminder that each day is a new beginning, a
+      fresh canvas upon which we can paint our hopes, dreams, and endless possibilities.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- l3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/3/FS2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/3/MF.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/long audio/3/TM.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Artificial intelligence holds the potential to revolutionize nearly every aspect of human life. From healthcare to
+      transportation, AI is unlocking new possibilities, improving efficiency, and solving complex problems with
+      unprecedented speed. In the future, we may see AI-driven breakthroughs in medical diagnoses, climate change
+      mitigation, and personalized education, transforming industries and enhancing quality of life. While the
+      technology promises to create smarter cities and autonomous systems, it also challenges us to address ethical
+      concerns about privacy, bias, and control. The future of AI is a blend of innovation and responsibility, a
+      powerful tool shaping tomorrow’s world in ways we are just beginning to imagine.
+    </em></div>
+
+  <!-- short audio -->
+  <hr>
+  <table>
+    <tr>
+      <th style="text-align: center; font-size: 24px;">short audio</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/1/FS/AI-generated art and music challenge traditional notions of creativity, blending human input with ma.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/1/MF/AI-generated art and music challenge traditional notions of creativity, blending human input with ma.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/1/TM/AI-generated art and music challenge traditional notions of creativity, blending human input with ma.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      AI-generated art and music challenge traditional notions of creativity, blending human input with machine
+      ingenuity.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/2/FS/Ethical concerns around bias, misinformation, and intellectual property remain key challenges for ge.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/2/MF/Ethical concerns around bias, misinformation, and intellectual property remain key challenges for ge.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/2/TM/Ethical concerns around bias, misinformation, and intellectual property remain key challenges for ge.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Ethical concerns around bias, misinformation, and intellectual property remain key challenges for generative AI's
+      future development.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/3/FS/Generative AI contributes to scientific research by predicting molecular structures or simulating co.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/3/MF/Generative AI contributes to scientific research by predicting molecular structures or simulating co.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/3/TM/Generative AI contributes to scientific research by predicting molecular structures or simulating co.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Generative AI contributes to scientific research by predicting molecular structures or simulating complex systems.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s4 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/4/FS/Generative AI creates content, including text, images, and music, by learning patterns from vast dat.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/4/MF/Generative AI creates content, including text, images, and music, by learning patterns from vast dat.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/4/TM/Generative AI creates content, including text, images, and music, by learning patterns from vast dat.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Generative AI creates content, including text, images, and music, by learning patterns from vast data sets.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s5 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/5/FS/Generative AI models like GPT can write stories, articles, or code, mimicking human language fluentl.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/5/MF/Generative AI models like GPT can write stories, articles, or code, mimicking human language fluentl.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/5/TM/Generative AI models like GPT can write stories, articles, or code, mimicking human language fluentl.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Generative AI models like GPT can write stories, articles, or code, mimicking human language fluently.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s6 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/6/FS/In healthcare, it helps generate personalized treatment plans by analyzing patient data and medical .wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/6/MF/In healthcare, it helps generate personalized treatment plans by analyzing patient data and medical .wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/6/TM/In healthcare, it helps generate personalized treatment plans by analyzing patient data and medical .wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      In healthcare, it helps generate personalized treatment plans by analyzing patient data and medical research.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s7 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/7/FS/It optimizes business processes by generating marketing content, emails, and product descriptions au.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/7/MF/It optimizes business processes by generating marketing content, emails, and product descriptions au.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/7/TM/It optimizes business processes by generating marketing content, emails, and product descriptions au.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      It optimizes business processes by generating marketing content, emails, and product descriptions automatically.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s8 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/8/FS/It powers innovations in art, design, and media by producing original and tailored outputs based on .wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/8/MF/It powers innovations in art, design, and media by producing original and tailored outputs based on .wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/8/TM/It powers innovations in art, design, and media by producing original and tailored outputs based on .wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      It powers innovations in art, design, and media by producing original and tailored outputs based on user prompts.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s9 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/9/FS/Its potential in gaming allows the creation of dynamic, adaptive environments and characters that re.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/9/MF/Its potential in gaming allows the creation of dynamic, adaptive environments and characters that re.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/9/TM/Its potential in gaming allows the creation of dynamic, adaptive environments and characters that re.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      Its potential in gaming allows the creation of dynamic, adaptive environments and characters that respond
+      uniquely.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- s10 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/10/FS/This technology enhances creativity by collaborating with humans, offering new ideas and solutions i.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/10/MF/This technology enhances creativity by collaborating with humans, offering new ideas and solutions i.wav"
+            autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source
+            src="./音频文件/short audio/10/TM/This technology enhances creativity by collaborating with humans, offering new ideas and solutions i.wav"
+            autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      This technology enhances creativity by collaborating with humans, offering new ideas and solutions in various
+      fields.
+    </em></div>
+
+  <!-- reconstruct audio -->
+  <hr>
+  <table>
+    <tr>
+      <th style="text-align: center; font-size: 24px;">reconstruct audio</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="90%" color=#987cb9 SIZE=3>
+
+  <!-- FastSpeech2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RFS-1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ003-0066 (Ground-Truth)</th>
+      <th style="text-align: center">LJ003-0066 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ003-0066_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ003-0066_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      As many various and, according to our ideas, heinous crimes came under this head.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+  
+  <!-- RFS-2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ020-0058 (Ground-Truth)</th>
+      <th style="text-align: center">LJ020-0058 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ020-0058_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ020-0058_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Peep under the cloth two or three times to see whether they rise evenly, and turn the pan around once that all may be equally exposed to the heat.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RFS-3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ021-0142 (Ground-Truth)</th>
+      <th style="text-align: center">LJ021-0142 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ021-0142_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ021-0142_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Accordingly, I propose to confer within the coming month.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RFS-4 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ024-0043 (Ground-Truth)</th>
+      <th style="text-align: center">LJ024-0043 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ024-0043_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ024-0043_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    that I will appoint justices who will not undertake to override the judgment of the Congress on legislative policy.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RFS-5 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ030-0059 (Ground-Truth)</th>
+      <th style="text-align: center">LJ030-0059 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ030-0059_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ030-0059_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    was a metallic frame with four handholds that riders in the car could grip while standing in the rear seat during parades.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RFS-6 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ038-0259 (Ground-Truth)</th>
+      <th style="text-align: center">LJ038-0259 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ038-0259_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/FS/LJ038-0259_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    The oral report was negative because of the battered condition of the bullet.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="90%" color=#987cb9 SIZE=3>
+  
+  <!-- Mamba-Transfomer -->
+  <table>
+    <tr>
+      <th style="text-align: center">Mamba-Transfomer</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="90%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ001-0074 (Ground-Truth)</th>
+      <th style="text-align: center">LJ001-0074 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ001-0074_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ001-0074_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    the best, mostly French or Low-Country, was neat and clear, but without any distinction.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ003-0309 (Ground-Truth)</th>
+      <th style="text-align: center">LJ003-0309 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ003-0309_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ003-0309_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Proper hours for locking and unlocking prisoners should be insisted upon.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ005-0080 (Ground-Truth)</th>
+      <th style="text-align: center">LJ005-0080 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ005-0080_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ005-0080_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Accordingly due provision was made for the enforcement of hard labor on all prisoners sentenced to it, and for the employment of all others.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-4 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ007-0084 (Ground-Truth)</th>
+      <th style="text-align: center">LJ007-0084 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ007-0084_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ007-0084_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    The inspectors in the following year, on examining the facts, found that some of these poor creatures had been in confinement for long periods.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-5 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ012-0058 (Ground-Truth)</th>
+      <th style="text-align: center">LJ012-0058 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ012-0058_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ012-0058_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    When the journey was resumed, Mrs. Solomons accompanied her husband in the coach. Half-way to Newgate she was taken with a fit.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RMT-6 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ021-0078 (Ground-Truth)</th>
+      <th style="text-align: center">LJ021-0078 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ021-0078_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/MF/LJ021-0078_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    no economic panacea, which could simply revive over-night the heavy industries and the trades dependent upon them.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- TM-Speech -->
+  <table>
+    <tr>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ003-0172 (Ground-Truth)</th>
+      <th style="text-align: center">LJ003-0172 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ003-0172_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ003-0172_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    The keeper went still further in his efforts to make money.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ018-0348 (Ground-Truth)</th>
+      <th style="text-align: center">LJ018-0348 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ018-0348_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ018-0348_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Henry Wainwright's impassioned denial of his crime, even after it had been brought fully home to him, has many parallels in the criminal records.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ027-0141 (Ground-Truth)</th>
+      <th style="text-align: center">LJ027-0141 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ027-0141_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ027-0141_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    is closely reproduced in the life-history of existing deer. Or, in other words.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-4 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ042-0153 (Ground-Truth)</th>
+      <th style="text-align: center">LJ042-0153 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ042-0153_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ042-0153_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    This was a fairly coherent description of life in that country, basically centered around the radio and television factory in which he worked.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-5 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ047-0051 (Ground-Truth)</th>
+      <th style="text-align: center">LJ047-0051 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ047-0051_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ047-0051_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    particularly since his employment did not involve any sensitive information.
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- RTM-6 -->
+  <table>
+    <tr>
+      <th style="text-align: center">LJ050-0230 (Ground-Truth)</th>
+      <th style="text-align: center">LJ050-0230 (Synthesized)</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ050-0230_re.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/reconstruct audio/TM/LJ050-0230_sy.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+    Manpower and Technical Assistance From Other Agencies.
+    </em></div>
+
+
+  <hr style="border: 1px solid black; background-color: black; height: 0.2px;">
+  </p>
+
+
+
+
+
+
+
+  <p>
+  <h2>Mandarin Multi-Speaker TTS</h2>
+  <div>
+    <b>Dataset</b>: <a href="http://www.aishelltech.com/aishell_3">AISHELL-3</a>
+  </div>
+  <div>
+    <b>Checkpoint</b>: <a
+      href="https://drive.google.com/file/d/1uYWd5JlaK-fochQ2JFgIP_wOEkoLPLqs/view?usp=sharing">link</a>
+  </div>
+  <div>
+    <b>Config</b>: <a href="https://github.com/ming024/FastSpeech2/tree/master/config/AISHELL3">link</a>
+  </div>
+  <div>
+    <b>Vocoder</b>: <a href="https://github.com/jik876/hifi-gan">HiFi-GAN (universal)</a>
+  </div>
+
+  <!-- 短音频 -->
+  <hr>
+  <table>
+    <tr>
+      <th style="text-align: center; font-size: 24px;">短音频</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- 短1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/FS/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/MF/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/TM/0.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/FS/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/MF/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/TM/1.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/FS/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/MF/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/TM/2.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/FS/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/MF/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/TM/3.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/FS/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/MF/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/1/TM/4.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Speaker</b>: <em>
+      row1-SSB0762、 row2-SSB1863、 row3-SSB0273、 row4-SSB1161、 row5-SSB0354
+    </em></div>
+  <div><b>Text</b>: <em>
+      日照香炉生紫烟，遥看瀑布挂前川，飞流直下三千尺，疑是银河落九天。
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- 短2 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/FS/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/MF/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/TM/0.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/FS/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/MF/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/TM/1.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/FS/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/MF/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/TM/2.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/FS/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/MF/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/TM/3.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/FS/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/MF/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/2/TM/4.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Speaker</b>: <em>
+      row1-SSB0762、 row2-SSB1863、 row3-SSB0273、 row4-SSB1161、 row5-SSB0354
+    </em></div>
+  <div><b>Text</b>: <em>
+      轻轻的我走了，正如我轻轻的来，我轻轻的招手，作别西天的云彩，那河畔的金柳，是夕阳中的新娘。
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- 短3 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/FS/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/MF/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/TM/0.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/FS/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/MF/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/TM/1.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/FS/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/MF/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/TM/2.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/FS/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/MF/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/TM/3.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/FS/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/MF/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/3/TM/4.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Speaker</b>: <em>
+      row1-SSB0762、 row2-SSB1863、 row3-SSB0273、 row4-SSB1161、 row5-SSB0354
+    </em></div>
+  <div><b>Text</b>: <em>
+      桃树、杏树、梨树，你不让我，我不让你，都开满了花赶趟儿。红的像火，粉的像霞，白的像雪。
+    </em></div>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- 短4 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/FS/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/MF/0.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/TM/0.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/FS/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/MF/1.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/TM/1.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/FS/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/MF/2.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/TM/2.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/FS/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/MF/3.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/TM/3.wav" autoplay />
+        </audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/FS/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/MF/4.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/短音频/4/TM/4.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Speaker</b>: <em>
+      row1-SSB0762、 row2-SSB1863、 row3-SSB0273、 row4-SSB1161、 row5-SSB0354
+    </em></div>
+  <div><b>Text</b>: <em>
+      应该说今天的机器学习、人工智能在这方面是一个有力的工具，但在可预见的未来还无法替代人类。
+    </em></div>
+
+  <!-- 长音频 -->
+  <hr>
+  <table>
+    <tr>
+      <th style="text-align: center; font-size: 24px;">长音频</th>
+    </tr>
+  </table>
+  <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+
+  <!-- 长1 -->
+  <table>
+    <tr>
+      <th style="text-align: center">FastSpeech2</th>
+      <th style="text-align: center">Mamba-Transfomer</th>
+      <th style="text-align: center">TM-Speech</th>
+    </tr>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/长音频/FS.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/长音频/MF.wav" autoplay />
+        </audio></td>
+      <td style="text-align: center"><audio controls="controls">
+          <source src="./音频文件/长音频/TM.wav" autoplay />
+        </audio></td>
+    </tr>
+  </table>
+  <div><b>Text</b>: <em>
+      语言模型可以分为三块：算力、数据和算法。所以语言模型也好，整个机器学习模型也好，本质上就是把数据通过算力和算法压进中间那个模型里面，使得模型有一定的能力，在面对一个新的数据时，它能够在原数据里面找到相似的东西，然后做一定的修改，输出你要的东西。
+    </em></div>
+
+</body>
+
+</html>
